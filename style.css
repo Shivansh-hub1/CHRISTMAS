@@ -9,7 +9,7 @@
 body {
   min-height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-              url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+              url('https://i.ibb.co/0j0PQ5GS/Gemini-Generated-Image-nm3lnlnm3lnlnm3l.png') center/cover no-repeat fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,4 +109,5 @@ h1 {
 @keyframes explode {
   0% { transform: translate(0, 0); opacity: 1; }
   100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+
 }
