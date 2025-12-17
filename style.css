@@ -1,0 +1,112 @@
+:root {
+  --primary-red: #d42426;
+  --gold: #f8b229;
+  --glass: rgba(255, 255, 255, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+#snowCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+
+.overlay {
+  position: relative;
+  z-index: 5;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 50px 40px;
+  border-radius: 35px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  max-width: 480px;
+  width: 90%;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px var(--primary-red);
+}
+
+.countdown {
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--gold);
+}
+
+#nameInput {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 20px;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+  width: 85%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.instruction { font-size: 0.8rem; margin-top: 10px; opacity: 0.7; }
+
+.gift {
+  width: 160px;
+  height: 130px;
+  margin: 30px auto;
+  background: var(--primary-red);
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gift::before { content: ''; position: absolute; width: 25px; height: 100%; background: var(--gold); left: 50%; transform: translateX(-50%); }
+.gift::after { content: ''; position: absolute; width: 100%; height: 25px; background: var(--gold); top: 50%; transform: translateY(-50%); }
+
+.gift:hover { transform: scale(1.1) rotate(3deg); }
+.gift.open { transform: scale(0) rotateX(180deg); opacity: 0; }
+
+.message-area { height: 0; opacity: 0; overflow: hidden; transition: 0.8s ease; }
+.message-area.reveal { height: auto; opacity: 1; margin-bottom: 25px; }
+
+.popup { font-family: 'Mountains of Christmas', cursive; font-size: 2.8rem; color: var(--gold); }
+#personalizedName { font-size: 1.3rem; margin-top: 5px; font-weight: 300; }
+
+.buttons { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
+.btn { width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
+.btn:hover { background: var(--primary-red); transform: translateY(-5px); }
+
+.signature { margin-top: 30px; font-size: 1rem; font-weight: 300; color: #ffdede; font-style: italic; opacity: 0.8; }
+
+/* 🎆 Firework Particles */
+.firework {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 20;
+  animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: translate(0, 0); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}
